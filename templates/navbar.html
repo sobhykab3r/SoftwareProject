@@ -1,0 +1,36 @@
+<div class="navbar navbar-inverse fixed-top" role="navigation" style="border-radius: 0;">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="{{ url_for('main.index') }}">ReelReviews</a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="{{ url_for('main.index') }}">Home</a></li>
+                <!-- Add other nav items here -->
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                {% if current_user.is_authenticated %}
+                    <li>
+                        {% if current_user.profile_pic_path %}
+                            <img src="{{ url_for('static', filename=current_user.profile_pic_path) }}" alt="dp" class="navbar-profile-pic">
+                        {% else %}
+                            <img src="{{ url_for('static', filename='images/default_profile.png') }}" alt="dp" class="navbar-profile-pic">
+                        {% endif %}
+                    </li>
+                    <li>
+                        <a href="{{ url_for('main.profile', uname=current_user.username) }}">{{ current_user.username }}</a>
+                    </li>
+                    <li><a href="{{ url_for('auth.logout') }}">Logout</a></li>
+                {% else %}
+                    <li><a href="{{ url_for('auth.login') }}" style="color: #fff;">Sign In</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</div>

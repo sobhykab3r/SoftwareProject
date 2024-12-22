@@ -1,0 +1,51 @@
+{% macro displayMovieList(movie_list) %}
+    {% for movie in movie_list %}
+    <div class="col-xs-12 col-sm-4 col-md-2 col-lg-3 movie-card" style="margin-bottom: 15px;">
+        <img src="{{ movie.poster }}" alt="{{ movie.title }} poster" class="img-responsive" style="border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
+        <div class="text-center" style="background-color: #2c2f33; padding: 10px; border-radius: 5px;">
+            <a href="/movie/{{movie.id}}" style="color: #f8f9fa;">
+                <h4 style="color: #f8f9fa;">{{ movie.title|truncate(10) }}</h4>
+            </a>
+        </div>
+    </div>
+    {% endfor %}
+{% endmacro %}
+
+{% macro displayReviews(review_list) %}
+    {% for review in review_list %}
+    <div class="row" style="margin-bottom: 20px;">
+        <div class="col-xs-2 col-sm-2 col-md-4 col-lg-4">
+            <h4 style="color: #f8f9fa;">Author</h4>
+            <p style="color: #f8f9fa;">{{ review.user.username }}</p>
+            <h4 style="color: #f8f9fa;">Rating</h4>
+            <p style="color: #f8f9fa;">{{ review.rating }}</p>
+        </div>
+        <div class="col-xs-10 col-sm-10 col-md-8 col-lg-8" style="background-color: #3a3d41; padding: 15px; border-radius: 5px;">
+            <h2><a href="{{ url_for('main.single_review', id=review.id) }}" style="color: #f8f9fa;">
+                {{ review.review_title }}
+            </a></h2>
+            <p>{{ review.movie_review }}</p>
+        </div>
+    </div>
+    {% endfor %}
+{% endmacro %}
+
+{% macro displayWatchlist(watchlist_items) %}
+    <div class="row">
+        {% for item in watchlist_items %}
+        <div class="col-xs-12 col-sm-4 col-md-2 col-lg-3 movie-card" style="margin-bottom: 15px;">
+            <img src="{{ item.movie.poster }}" alt="{{ item.movie.title }} poster" class="img-responsive" style="border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);">
+            <div class="text-center" style="background-color: #2c2f33; padding: 10px; border-radius: 5px;">
+                <a href="{{ url_for('main.movie', id=item.movie.id) }}" style="color: #f8f9fa;">
+                    <h4 style="color: #f8f9fa;">{{ item.movie.title }}</h4>
+                </a>
+                <p style="color: #f8f9fa;">Rating: {{ item.rating }}</p>
+                <form action="{{ url_for('main.remove_from_watchlist', movie_id=item.movie.id) }}" method="post">
+                    {{ csrf_token() }}
+                    <button type="submit" class="btn btn-danger mt-2">Remove from Watchlist</button>
+                </form>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+{% endmacro %}

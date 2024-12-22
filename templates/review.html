@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block styles %}
+    {{ super() }}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #1c1e21; /* Dark background color */
+            color: #f8f9fa; /* Light text color */
+        }
+        .container {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #2c2f33; /* Slightly lighter background for containers */
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .img-responsive {
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        h4 {
+            color: #f8f9fa;
+            text-transform: uppercase;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        p {
+            background-color: #3a3d41; /* Even lighter background for text sections */
+            padding: 15px;
+            border-radius: 5px;
+            border: none; /* Removed border */
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6">
+            <img src="{{ review.image_path }}" class="img-responsive" alt="{{ format_review_title | safe }}">
+        </div>
+        <div class="col-sm-6">
+            <h4>{{ format_review_title | safe }}</h4>
+            <p>{{ format_review | safe }}</p>
+        </div>
+    </div>
+</div>
+{% endblock %}
