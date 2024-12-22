@@ -1,0 +1,147 @@
+/* Basic Styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    color: #333; /* Updated color for better readability */
+    background-color: #f8f9fa; /* Soft background color */
+    margin: 0;
+    padding: 0;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    color: #2c3e50; /* Darker heading color */
+}
+
+h3.text-center {
+    text-transform: uppercase;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+/* Container Styles */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Navbar */
+.navbar {
+    background-color: #343a40; /* Dark background color */
+    border-radius: 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #fff !important;
+}
+
+.navbar-nav > li > a {
+    color: #fff !important;
+    padding: 15px 20px;
+}
+
+.navbar-nav > li > a:hover {
+    background-color: #495057;
+    color: #fff !important;
+}
+
+.navbar-profile-pic {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    margin-top: 5px;
+    margin-right: 10px;
+    border: 2px solid #fff;
+}
+
+/* Navbar Toggle Button */
+.navbar-toggle {
+    border-color: #fff;
+}
+
+.navbar-toggle .icon-bar {
+    background-color: #fff;
+}
+
+.navbar-inverse .navbar-toggle:focus, .navbar-inverse .navbar-toggle:hover {
+    background-color: #495057;
+}
+
+/* Buttons */
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    color: white;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+/* Forms */
+.form-control {
+    border-radius: 5px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-control:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Login Card */
+.login-card {
+    width: 100%;
+    max-width: 400px;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background: white;
+}
+
+/* Flash Messages */
+.alert {
+    margin-bottom: 20px;
+    border-radius: 5px;
+}
+
+/* Footer */
+.footer {
+    background-color: #f8f9fa;
+    padding: 20px 0;
+    text-align: center;
+    border-top: 1px solid #e7e7e7;
+    margin-top: 50px;
+}
+
+.footer p {
+    margin: 0;
+    color: #6c757d;
+}
+
+/* Jumbotron */
+.jumbotron {
+    background: linear-gradient(135deg, #6e8efb, #a777e3);
+    color: white;
+    padding: 60px 30px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.jumbotron h1 {
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+.jumbotron p {
+    font-size: 1.5rem;
+}
