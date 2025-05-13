@@ -1,1 +1,1 @@
-# Software Engineering Final Project
+# Online Movie Reviews Platform
